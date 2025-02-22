@@ -29,3 +29,6 @@ id,node_id,status,assigned_to,lat,long,x,y
 4,,,,45.081685462,-84.774535091,4.1443505071802065,0.8324433006346226
 5,,,,45.081685505,-84.774530518,4.504128493950702,0.8471242114901543
 ```
+
+## To do
+- Consider the angular difference between UTM and the local map coordinate systems.
