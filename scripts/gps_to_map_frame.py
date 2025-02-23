@@ -1,13 +1,10 @@
 import csv
 import sys
-
-# import pandas as pd
 import pyproj
-import numpy as np
 
 # Lucky clover farm
-START_LAT = 45.081679
-START_LON = -84.774588
+# START_LAT = 45.081679
+# START_LON = -84.774588
 
 
 def gps_to_cartesian(csv_file, origin):
@@ -16,7 +13,6 @@ def gps_to_cartesian(csv_file, origin):
 
     wgs84 = pyproj.CRS("EPSG:4326")
     utm = pyproj.CRS("EPSG:32616")
-    # transformer_utm_to_wgs84 = pyproj.Transformer.from_crs(utm, wgs84, always_xy=True)
     transformer_wgs84_to_utm = pyproj.Transformer.from_crs(wgs84, utm, always_xy=True)
 
     start_x, start_y = transformer_wgs84_to_utm.transform(origin_lon, origin_lat)
@@ -39,7 +35,6 @@ def gps_to_cartesian(csv_file, origin):
             data.append(row)
             i=i+1
             print("Row:", row)
-    
     return data
 
 
@@ -65,18 +60,3 @@ if __name__=="__main__":
     else:
         print("Please provide an input file name, latitude, and longitude.")   
         
-
-    
-        
-    
-        
-
-    
-    # main()
-
-
-# Example usage
-# csv_file = 'your_file.csv'
-# origin = (40.7128, -74.0060)  # Example: New York City coordinates
-# result = gps_to_cartesian(csv_file, origin)
-# print(result.head())
